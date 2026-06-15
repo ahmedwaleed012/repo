@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎀 لوحة الذكريات السعيدة 🎀</title>
+    <style>
+        :root {
+            --primary-pink: #ff8da1;
+            --dark-pink: #ff6b8b;
+            --light-pink: #fff0f3;
+            --card-bg: #ffffff;
+            --text-main: #5c3d47;
+            --text-muted: #8c6d76;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-pink);
+            /* خلفية منقطة رقيقة تناسب التصميم البينكي */
+            background-image: radial-gradient(#ffccd5 20%, transparent 20%),
+                              radial-gradient(#ffccd5 20%, transparent 20%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--text-main);
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        /* تنسيق الهيدر */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        header h1 {
+            color: var(--dark-pink);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* شبكة الكروت (Grid) */
+        .dashboard-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            padding: 0 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* تصميم الكارت الكيوت */
+        .menu-card {
+            background: var(--card-bg);
+            border: 3px solid #ffccd5;
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: 0 8px 0px #ffe3e8;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* حركات الكارت عند مرور الماوس */
+        .menu-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-pink);
+            box-shadow: 0 15px 20px rgba(255, 141, 161, 0.25);
+            background: #fffdfd;
+        }
+
+        /* تأثير الضغط على الكارت */
+        .menu-card:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px #ffe3e8;
+        }
+
+        /* عناصر الكارت الداخلية */
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover .card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--dark-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* الأنميشن */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* التوافق مع الشاشات الصغيرة */
+        @media (max-width: 480px) {
+            header h1 { font-size: 2rem; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌸 عالمنا الصغير 🌸</h1>
+        <p>كل التفاصيل الحلوة اللي بتجمعنا في مكان واحد ونفس المكان 💕</p>
+    </header>
+
+    <div class="dashboard-grid">
+
+        <!-- كارت 1: صورتنا (مفيش غيرها وحده) -->
+        <a href="./card1.html" class="menu-card">
+            <div class="card-icon">📸</div>
+            <div class="card-title">صورتنا الحلوة</div>
+            <div class="card-desc">مفيش غيرها واحدة بس.. بس بتسوى الدنيا كلها في عيني.</div>
+        </a>
+
+        <!-- كارت 2: اغنية بنحبها سوا -->
+        <a href="./card2.html" target="_blank" class="menu-card">
+            <div class="card-icon">🎵</div>
+            <div class="card-title">أغنية بنحبها سوا</div>
+            <div class="card-desc">النوتة والاغنية اللي احنا الاتنين بنحبها</div>
+        </a>
+
+        <!-- كارت 3: اغنية بفتكرني بيكي -->
+        <a href="./card3.html" target="_blank" class="menu-card">
+            <div class="card-icon">🎧</div>
+            <div class="card-title">أغنية بتفكرني بيكي</div>
+            <div class="card-desc">أول ما بتشتغل الأغنية دي.. مبيجيش في بالي وعقلي غيرك.</div>
+        </a>
+
+        <!-- كارت 4: اجمل ذكري -->
+        <a href="./card4.html" class="menu-card">
+            <div class="card-icon">✨</div>
+            <div class="card-title">أجمل ذكرى</div>
+            <div class="card-desc">اليوم  اللي عمري في حياتي ما هقدر أنساه أبدًا.</div>
+        </a>
+
+        <!-- كارت 5: اكتر تصرف بحبه منك -->
+        <a href="./card5.html" class="menu-card">
+            <div class="card-icon">🧸</div>
+            <div class="card-title">أكتر تصرف بحبه منكِ</div>
+            <div class="card-desc">الحركة العفوية والتفاصيل الصغيرة اللي بتهون العيشة</div>
+        </a>
+
+        <!-- كارت 6: احلي صوره بحبها ليكي -->
+        <a href="./card6.html" class="menu-card">
+            <div class="card-icon">👑</div>
+            <div class="card-title">أحلى صورة ليكي</div>
+            <div class="card-desc">الصورة اللي ملامحك فيها ضحكت.</div>
+        </a>
+
+        <!-- كارت 7: امنيتي ليكي -->
+        <a href="./card7.html" class="menu-card">
+            <div class="card-icon">🌟</div>
+            <div class="card-title">أمنيتي ليكي</div>
+            <div class="card-desc">كل الدعوات والأمنيات الصادقة اللي بتمناها تشوفيها في حياتك.</div>
+        </a>
+
+        <!-- كارت 8: كلمة من القلب ليكي -->
+        <a href="./card8.html" class="menu-card">
+            <div class="card-icon">💝</div>
+            <div class="card-title">كلمة من القلب</div>
+            <div class="card-desc">كلام من جوايا ليكي انتِ وبس...</div>
+        </a>
+
+    </div>.htm
+
+</body>
+</html>

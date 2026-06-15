@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 قفشات وصور مضحكة 🌸</title>
+    <style>
+        :root {
+            --primary-pink: #ff8da1;
+            --dark-pink: #ff6b8b;
+            --light-pink: #fff0f3;
+            --text-main: #5c3d47;
+            --text-muted: #8c6d76;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-pink);
+            background-image: radial-gradient(#ffccd5 20%, transparent 20%),
+                              radial-gradient(#ffccd5 20%, transparent 20%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h2 {
+            color: var(--dark-pink);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* حاوية الصور جنب بعض أو تحت بعض في الشاشات الصغيرة */
+        .photos-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 900px;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        /* 📸 إطار بولارويد مضحك */
+        .funny-polaroid {
+            background: white;
+            padding: 1rem 1rem 2.5rem 1rem;
+            border-radius: 4px;
+            box-shadow: 0 12px 25px rgba(255, 141, 161, 0.15);
+            border: 1px solid rgba(255, 172, 187, 0.3);
+            width: 280px;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* إمالة خفيفة لكل صورة بشكل مختلف عشان العفوية */
+        .card-left { transform: rotate(-3deg); }
+        .card-right { transform: rotate(3deg); }
+
+        /* تأثير اهتزاز مضحك وممتع عند مرور الماوس */
+        .funny-polaroid:hover {
+            transform: scale(1.05) rotate(0deg);
+            animation: mini-shake 0.3s infinite ease-in-out;
+            box-shadow: 0 15px 30px rgba(255, 107, 139, 0.25);
+        }
+
+        /* لزقة تياب شفافة كرتونية فوق الصور */
+        .funny-polaroid::before {
+            content: '😂';
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            background: #fff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* مربع الصورة */
+        .photo-holder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #ffeef1;
+            overflow: hidden;
+            border: 2px solid #fff5f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .photo-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* نص الكابشن المكتوب بخط مضحك أسفل البولارويد */
+        .caption-text {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: var(--dark-pink);
+            font-weight: bold;
+        }
+
+        /* صندوق قفشة تانية تحت */
+        .joke-box {
+            background: white;
+            border: 3px solid #ffccd5;
+            border-radius: 20px;
+            padding: 1.2rem;
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 6px 0px #ffe3e8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* زر العودة للرئيسية */
+        .btn-back {
+            margin-top: 2rem;
+            padding: 10px 24px;
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 0px var(--dark-pink);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover { background: var(--dark-pink); }
+        .btn-back:active { transform: translateY(2px); box-shadow: 0 2px 0px var(--dark-pink); }
+
+        /* أنميشن الاهتزاز المضحك عند الـ Hover */
+        @keyframes mini-shake {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-2px) rotate(-1deg); }
+            75% { transform: translateY(2px) rotate(1deg); }
+        }
+    </style>
+</head>
+<body>
+
+ 
+
+    <div class="photos-container">
+        
+        <!-- 🖼️ الصورة المضحكة الأولى -->
+        <div class="funny-polaroid card-left">
+            <div class="photo-holder">
+                <!-- ⚠️ استبدل الرابط src برابط صورتك المضحكة الأولى -->
+                <img src="./comdy.jpeg" alt="صورة مضحكة 1">
+            </div>
+        </div>
+
+        <!-- 🖼️ الصورة المضحكة الثانية -->
+        <div class="funny-polaroid card-right">
+            <div class="photo-holder">
+                <!-- ⚠️ استبدل الرابط src برابط صورتك المضحكة الثانية -->
+                <img src="./bad.jpeg" alt="صورة مضحكة 2">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- عبارة كوميدية تحت الصور -->
+    <div class="joke-box">
+        "اوتظل دي أكتر لقطات عفوية بتموتني ضحك بجد! 😂💕"
+    </div>
+
+    <!-- زر العودة للوحة التحكم -->
+    <a href="../dashboard.html" class="btn-back">✨ العودة للرئيسية</a>
+
+</body>
+</html>

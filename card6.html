@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 أحلى صورة ليكي 🌸</title>
+    <style>
+        :root {
+            --primary-pink: #ff8da1;
+            --dark-pink: #ff6b8b;
+            --light-pink: #fff0f3;
+            --text-main: #5c3d47;
+            --text-muted: #8c6d76;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body {
+            background-color: var(--light-pink);
+            background-image: radial-gradient(#ffccd5 20%, transparent 20%), radial-gradient(#ffccd5 20%, transparent 20%);
+            background-size: 30px 30px; background-position: 0 0, 15px 15px;
+            color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem 1rem;
+        }
+        .container { max-width: 440px; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        
+        .magic-frame {
+            background: white; padding: 1rem; border-radius: 24px; box-shadow: 0 15px 35px rgba(255, 141, 161, 0.25); border: 3px solid #ffccd5; width: 100%; text-align: center;
+        }
+        .image-box {
+            width: 100%; aspect-ratio: 4 / 5; background: #ffeef1; border-radius: 16px; overflow: hidden; position: relative; border: 1px solid #ffe3e8;
+        }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .caption { margin-top: 1.2rem; font-size: 1.2rem; color: var(--dark-pink); font-weight: bold; }
+        .description { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-top: 0.8rem; padding: 0 0.5rem; }
+
+        .btn-back { margin-top: 2rem; padding: 10px 24px; background: var(--primary-pink); color: white; border-radius: 15px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 0px var(--dark-pink); transition: all 0.2s ease; }
+        .btn-back:hover { background: var(--dark-pink); }
+        .btn-back:active { transform: translateY(2px); box-shadow: 0 2px 0px var(--dark-pink); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="magic-frame">
+            <div class="image-box">
+                <!-- ⚠️ ضع رابط صورتها المفضلة هنا في الـ src -->
+                <img src="./besr.jpeg" alt="أحلى صورة ليكي">
+            </div>
+            <div class="caption">السيفُ في الغِمدِ لا تُخشى مضارِبُهُ
+وسيفُ عينيكِ في الحالينِ بتّارُ
+
+إنَّ المفاتنَ في عينيكِ مُخمَّرةٌ
+من نظرةٍ منكِ يغدو المرءُ سكرانَا💕</div>
+        </div>
+
+        <a href="../dashboard.html" class="btn-back">✨ العودة للرئيسية</a>
+    </div>
+
+</body>
+</html>

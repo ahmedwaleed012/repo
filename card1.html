@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 صورتنا الحلوة 🌸</title>
+    <style>
+        :root {
+            --primary-pink: #ff8da1;
+            --dark-pink: #ff6b8b;
+            --light-pink: #fff0f3;
+            --text-main: #5c3d47;
+            --text-muted: #8c6d76;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-pink);
+            background-image: radial-gradient(#ffccd5 20%, transparent 20%),
+                              radial-gradient(#ffccd5 20%, transparent 20%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Container setup */
+        .memory-container {
+            max-width: 450px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* 📸 Cute Polaroid Frame Design */
+        .polaroid-frame {
+            background: white;
+            padding: 1.2rem 1.2rem 3rem 1.2rem;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(255, 141, 161, 0.2);
+            border: 1px solid rgba(255, 172, 187, 0.3);
+            transform: rotate(-2deg); /* Slightly tilted for that cozy aesthetic */
+            transition: transform 0.3s ease;
+            width: 100%;
+            position: relative;
+        }
+
+        .polaroid-frame:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        /* Decorative tape effect at the top */
+        .polaroid-frame::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(2px);
+            border: 1px dashed rgba(255, 107, 139, 0.3);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Photo Area Wrapper */
+        .photo-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* Perfectly square frame */
+            background: #ffeef1;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 2px solid #fff5f6;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 🖼️ The Actual Photo Element */
+        .actual-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Keeps aspect ratio clean without stretching */
+            transition: opacity 0.5s ease;
+        }
+
+        /* Placeholder style when image hasn't been set yet */
+        .photo-placeholder {
+            position: absolute;
+            text-align: center;
+            color: var(--primary-pink);
+            font-size: 0.9rem;
+            padding: 1rem;
+        }
+
+        .photo-placeholder span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            animation: float 2s infinite ease-in-out;
+        }
+
+        /* Polaroid Caption text written at the bottom border */
+        .polaroid-caption {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin-top: 1.2rem;
+            font-size: 1.2rem;
+            color: var(--dark-pink);
+            font-weight: bold;
+        }
+
+        /* Message Box Card under the photo */
+        .message-card {
+            background: white;
+            border: 3px solid #ffccd5;
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 8px 0px #ffe3e8;
+            width: 100%;
+        }
+
+        .message-card h2 {
+            font-size: 1.3rem;
+            color: var(--dark-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .message-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Cute Back Button */
+        .btn-back {
+            margin-top: 2rem;
+            padding: 10px 24px;
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 0px var(--dark-pink);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--dark-pink);
+        }
+
+        .btn-back:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px var(--dark-pink);
+        }
+
+        /* Animations */
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="memory-container">
+        
+        <!-- Polaroid Photo Frame -->
+        <div class="polaroid-frame">
+            <div class="photo-wrapper">
+                
+                <!-- PLACEHOLDER MESSAGE (Will sit behind the image or show up if image fails) -->
+                <div class="photo-placeholder">
+                    <span>✨💖✨</span>
+                </div>
+
+                <!-- ⚠️ PUT YOUR PHOTO FILE OR ONLINE URL IN THE 'src' ATTRIBUTE BELOW -->
+                <img src="./us.jpeg" alt="صورتنا الحلوة" class="actual-photo">
+                
+            </div>
+            <div class="polaroid-caption">معاً دائماً وعمري ما هكتفي.. 🔐</div>
+        </div>
+
+        <!-- Description Note Card -->
+        <div class="message-card">
+            <h2>صورتنا اليتيمة الحلوة 🌸</h2>
+            <p>مفيش غيرها واحدة بس جمعتنا، بس كل ما ببص فيها بفتكر اليوم ده بكل تفاصيله، ضحكتنا، والمكان. الصورة دي غالية عندي جداً وبتساوي الدنيا بحالها عندي!</p>
+        </div>
+
+        <!-- Return to Dashboard Button -->
+        <a href="../dashboard.html" class="btn-back">✨ العودة للرئيسية</a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Sweet Secret Portal 🌸</title>
+    <style>
+        :root {
+            --primary-pink: #ff8da1;
+            --dark-pink: #ff6b8b;
+            --light-pink: #fff0f3;
+            --accent-purple: #d8b4fe;
+            --error-red: #ff4d6d;
+            --text-color: #5c3d47;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-pink);
+            /* Cute playful pastel pattern */
+            background-image: radial-gradient(#ffccd5 20%, transparent 20%),
+                              radial-gradient(#ffccd5 20%, transparent 20%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Container Card */
+        .pink-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 30px rgba(255, 141, 161, 0.2);
+            border: 4px solid #ffccd5;
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .pink-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Decorative floating hearts */
+        .heart-icon {
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            display: inline-block;
+            margin-bottom: 1rem;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--dark-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #8c6d76;
+            margin-bottom: 2rem;
+        }
+
+        /* Input Field Styling */
+        .input-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 14px;
+            background: #fff8f9;
+            border: 3px solid #ffe3e8;
+            border-radius: 20px;
+            color: var(--text-color);
+            font-size: 1.3rem;
+            text-align: center;
+            letter-spacing: 6px;
+            outline: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .input-container input:focus {
+            border-color: var(--primary-pink);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(255, 141, 161, 0.2);
+        }
+
+        /* Error Text */
+        #error-msg {
+            color: var(--error-red);
+            font-size: 0.85rem;
+            margin-top: 0.6rem;
+            font-weight: bold;
+            min-height: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Buttons */
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary-pink);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 0px var(--dark-pink);
+            transition: all 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--dark-pink);
+        }
+
+        .btn-submit:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0px var(--dark-pink);
+        }
+
+        /* Success State Effects */
+        .success-flash {
+            background-color: #e8fff5 !important;
+            border-color: #a7f3d0 !important;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-10px); }
+            40%, 80% { transform: translateX(10px); }
+        }
+
+        .shake {
+            animation: shake 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pink-card" id="portal-card">
+        <div class="heart-icon">💖</div>
+        <h2>Secret Club Entry</h2>
+        <p>Type the magical 6-digit code to enter!</p>
+        
+        <div class="input-container">
+            <input type="password" id="password-field" placeholder="••••••" maxlength="6" autofocus>
+            <div id="error-msg">Opps! Wrong code, try again~ 🎀</div>
+        </div>
+        
+        <button class="btn-submit" onclick="checkPassword()">Unlock ✨</button>
+    </div>
+
+    <script>
+        // Configuration
+        const TARGET_PASSWORD = "258177";
+        
+        // ⚠️ REPLACE THIS URL with the actual website page you want to open!
+        const DESTINATION_PAGE = "./dashboard.html"; 
+
+        const passwordField = document.getElementById('password-field');
+        const errorMsg = document.getElementById('error-msg');
+        const portalCard = document.getElementById('portal-card');
+
+        // Let users press 'Enter' key to submit
+        passwordField.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function checkPassword() {
+            const enteredValue = passwordField.value;
+
+            if (enteredValue === TARGET_PASSWORD) {
+                // Clear errors and show success aesthetic
+                errorMsg.style.opacity = "0";
+                passwordField.classList.add('success-flash');
+                passwordField.blur();
+                
+                // Optional: Change button text temporarily
+                document.querySelector('.btn-submit').innerText = "Opening... 💕";
+
+                // Redirect to the new page after a brief 600ms delays for the effect
+                setTimeout(() => {
+                    window.location.href = DESTINATION_PAGE;
+                }, 600);
+
+            } else {
+                // Wrong password: trigger layout animations
+                errorMsg.style.opacity = "1";
+                portalCard.classList.add('shake');
+                
+                // Clear field for another attempt
+                passwordField.value = '';
+                passwordField.focus();
+
+                // Clean animation class so it can shake again next time
+                setTimeout(() => {
+                    portalCard.classList.remove('shake');
+                }, 400);
+            }
+        }
+    </script>
+</body>
+</html>

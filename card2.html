@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 أغنية بنحبها سوا 🌸</title>
+    <style>
+        :root {
+            --primary-pink: #ff8da1;
+            --dark-pink: #ff6b8b;
+            --light-pink: #fff0f3;
+            --text-main: #5c3d47;
+            --text-muted: #8c6d76;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-pink);
+            background-image: radial-gradient(#ffccd5 20%, transparent 20%),
+                              radial-gradient(#ffccd5 20%, transparent 20%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        /* حاوية الأغنية */
+        .song-container {
+            max-width: 450px;
+            width: 100%;
+            background: white;
+            border: 4px solid #ffccd5;
+            border-radius: 30px;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 15px 35px rgba(255, 141, 161, 0.2);
+            text-align: center;
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* 📻 أسطوانة الموسيقى الدوارة مع الغلاف */
+        .vinyl-record {
+            width: 180px;
+            height: 180px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            margin: 0 auto 2rem auto;
+            border: 6px solid #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 0 3px var(--primary-pink);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* أنميشن الدوران الافتراضي للمشغل */
+            animation: spin 8s linear infinite;
+            animation-play-state: paused;
+            overflow: hidden;
+        }
+
+        /* الخطوط الحلزونية للأسطوانة الكلاسيكية */
+        .vinyl-record::before {
+            content: '';
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            border: 1px double rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* 🖼️ غلاف الأغنية في منتصف الأسطوانة مباشرةً */
+        .audio-cover {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #1a1a1a;
+            object-fit: cover;
+            z-index: 2;
+            background-color: var(--primary-pink);
+        }
+
+        /* الثقب الصغير الموجود في مركز الأسطوانة */
+        .vinyl-center-hole {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--light-pink);
+            border-radius: 50%;
+            z-index: 3;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+            border: 2px solid #fff;
+        }
+
+        /* النوتة الموسيقية الطايرة */
+        .music-note {
+            position: absolute;
+            font-size: 1.5rem;
+            color: var(--dark-pink);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--dark-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* مشغل الصوت المدمج والأنيق */
+        .audio-player-wrapper {
+            background: #fff5f6;
+            padding: 1rem;
+            border-radius: 20px;
+            border: 2px dashed #ffccd5;
+            margin-bottom: 2rem;
+        }
+
+        audio {
+            width: 100%;
+            outline: none;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #fff5f6;
+        }
+
+        /* حاوية كلمات الأغنية */
+        .lyrics-box {
+            background: #fffbfb;
+            border-radius: 16px;
+            padding: 1.2rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            border: 1px solid #ffe3e8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        /* زر العودة */
+        .btn-back {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 0px var(--dark-pink);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--dark-pink);
+        }
+
+        .btn-back:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px var(--dark-pink);
+        }
+
+        /* الأنميشن والتحركات */
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes floatNote {
+            0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-70px) translateX(30px) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="song-container">
+        
+        <!-- أسطوانة الموسيقى التفاعلية وبداخلها الصورة -->
+        <div class="vinyl-record" id="vinyl">
+            <!-- ⚠️ ضع رابط بوستر أو صورة الأغنية في الـ src أدناه -->
+            <img src="./download (18).jfif" alt="غلاف الأغنية" class="audio-cover">
+            <div class="vinyl-center-hole"></div>
+        </div>
+
+        <h2>أغنيتنا المفضلة 🌸</h2>
+        <p class="subtitle">المزيكا اللي دايمًا بتاخدنا لنفس المكان الحلو..</p>
+
+        <!-- 🔊 مشغل ملف الصوت -->
+        <div class="audio-player-wrapper">
+            <!-- ⚠️ استبدل رابط src برابط ملف الأغنية الخاص بك (مثل song.mp3) -->
+            <audio id="my-audio" controls>
+                <source src="./videoplayback (1).m4a" type="audio/mpeg">
+                متصفحك لا يدعم مشغل الصوت المدمج.
+            </audio>
+        </div>
+
+        <!-- صندوق الكلمات أو الرسالة الخاصة بالأغنية -->
+        <div class="lyrics-box">
+            في يوم و ليلة .. في يوم و ليلة<br>
+            خدنا حلاوة الحب كلو في يوم و ليلة<br>
+أنا و حبيبي ...أنا و حبيبي
+دوبنا عمر الحب كلو في يوم و ليلة            ✨💕
+        </div>
+
+        <!-- زر العودة للوحة التحكم -->
+        <a href="../dashboard.html" class="btn-back">✨ العودة للرئيسية</a>
+
+    </div>
+
+    <script>
+        const audio = document.getElementById('my-audio');
+        const vinyl = document.getElementById('vinyl');
+
+        // جعل الأسطوانة والغلاف يدوران فقط عند تشغيل الصوت
+        audio.addEventListener('play', () => {
+            vinyl.style.animationPlayState = 'running';
+            startMusicEffects();
+        });
+
+        audio.addEventListener('pause', () => {
+            vinyl.style.animationPlayState = 'paused';
+        });
+
+        audio.addEventListener('ended', () => {
+            vinyl.style.animationPlayState = 'paused';
+        });
+
+        // تأثير النوتات الموسيقية الطائرة
+        function startMusicEffects() {
+            if (audio.paused) return;
+            
+            const notes = ['🎵', '🎶', '✨', '💖'];
+            const randomNote = notes[Math.floor(Math.random() * notes.length)];
+            
+            const noteEl = document.createElement('div');
+            noteEl.className = 'music-note';
+            noteEl.innerText = randomNote;
+            noteEl.style.left = (vinyl.offsetLeft + vinyl.offsetWidth / 2) + 'px';
+            noteEl.style.top = (vinyl.offsetTop + 40) + 'px';
+            noteEl.style.animation = 'floatNote 2s ease-out forwards';
+            
+            document.body.appendChild(noteEl);
+            
+            setTimeout(() => {
+                noteEl.remove();
+            }, 2000);
+
+            setTimeout(startMusicEffects, 1200);
+        }
+    </script>
+</body>
+</html>
